@@ -2,8 +2,9 @@ import { Routes, Route } from "react-router-dom"
 import { Container } from 'react-bootstrap'
 import { Home } from "./pages/Home"
 import { Store } from "./pages/Store"
-import { About } from "./pages/About"
-import { Navbar } from "./components/Navbar"
+import { Game } from "./pages/Game"
+import { Budgets } from "./pages/Budgets"
+import { Navbar } from "./components/Navbar/Navbar.tsx"
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/budgets" element={<Budgets />} />
         </Routes>
       </Container>
     </ShoppingCartProvider>
