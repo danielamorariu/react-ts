@@ -4,7 +4,7 @@ import { BudgetCard } from "../components/Budgets/BudgetCard"
 import { AddBudgetModal } from "../components/Budgets/AddBudgetModal"
 import { ViewExpensesModal } from "../components/Budgets/ViewExpensesModal"
 import { AddExpenseModal } from "../components/Budgets/AddExpenseModal"
-import {UNCATEGORIZED_BUDGET_ID, useBudgets} from "../context/BudgetsContext"
+import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetsContext"
 import { UncategorizedBudgetCard } from "../components/Budgets/UncategorizedBudgetCard"
 import { TotalBudgetCard } from "../components/Budgets/TotalBudgetCard"
 export function Budgets() {
@@ -37,7 +37,9 @@ export function Budgets() {
                 >
                     {budgets.map(budget => {
                         const amount = getBudgetExpenses(budget.id).reduce(
-                            (total, expense) => total + expense.amount,
+                            (total, expense) => {
+                                return total + expense.amount;
+                            },
                             0
                         )
                         return (
@@ -47,7 +49,9 @@ export function Budgets() {
                                 amount={amount}
                                 max={budget.max}
                                 onAddExpenseClick={() => openAddExpenseModal(budget.id)}
-                                onViewExpensesClick={() => setViewExpensesModalBudgetId(budget.id)}
+                                onViewExpensesClick={() =>
+                                    setViewExpensesModalBudgetId(budget.id)
+                                }
                             />
                         )
                     })}
